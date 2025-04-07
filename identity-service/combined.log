@@ -1,0 +1,2 @@
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:26:47.727Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:26:48.436Z"}
