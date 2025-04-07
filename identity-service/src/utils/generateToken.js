@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import cryto from "crypto";
+import crypto from "crypto";
 import RefreshToken from "../models/RefreshToken.js";
 
 const generateTokens = async (user) => {
@@ -14,7 +14,7 @@ const generateTokens = async (user) => {
     }
   );
 
-  const refreshToken = cryto.randomBytes(40).toString("hex");
+  const refreshToken = crypto.randomBytes(40).toString("hex");
   const expiresAt = new Date();
   expiresAt.setDate(expiresAt.getDate() + 7); //refresh token expires in 7 days
 

@@ -1,2 +1,64 @@
 {"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:26:47.727Z"}
 {"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:26:48.436Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:32:21.486Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:32:21.487Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:32:21.491Z"}
+{"buffer":{"data":[103,243,211,229,236,100,206,56,103,169,127,150],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T13:32:21.635Z"}
+{"level":"error","message":"TypeError: logger.err is not a function\n    at registerUser (file:///Users/chaitanya/Documents/nodejs-microservices/identity-service/src/controllers/identity-controller.js:48:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","service":"identity-service","timestamp":"2025-04-07T13:32:21.638Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:32:51.388Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:32:51.804Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:32:57.133Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:32:57.134Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:32:57.137Z"}
+{"level":"error","message":"Registration error occured Cannot read properties of undefined (reading 'details')","service":"identity-service","stack":"TypeError: Cannot read properties of undefined (reading 'details')\n    at registerUser (file:///Users/chaitanya/Documents/nodejs-microservices/identity-service/src/controllers/identity-controller.js:28:48)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-04-07T13:32:57.183Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:38:50.923Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:38:51.340Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:38:59.325Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:38:59.326Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:38:59.329Z"}
+{"0":"E","1":"m","10":"s","11":"e","12":"r","13":"n","14":"a","15":"m","16":"e","17":" ","18":"a","19":"l","2":"a","20":"r","21":"e","22":"a","23":"d","24":"y","25":" ","26":"t","27":"a","28":"k","29":"e","3":"i","30":"n","4":"l","5":" ","6":"o","7":"r","8":" ","9":"u","level":"warn","message":"User already exists","service":"identity-service","timestamp":"2025-04-07T13:38:59.373Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:39:08.537Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:39:08.537Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:39:08.539Z"}
+{"buffer":{"data":[103,243,213,124,24,119,170,155,221,176,97,246],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T13:39:08.666Z"}
+{"_message":"refreshToken validation failed","errors":{"expiredAt":{"kind":"required","message":"Path `expiredAt` is required.","name":"ValidatorError","path":"expiredAt","properties":{"message":"Path `expiredAt` is required.","path":"expiredAt","type":"required"}}},"level":"error","message":"Registration error occured refreshToken validation failed: expiredAt: Path `expiredAt` is required.","service":"identity-service","stack":"ValidationError: refreshToken validation failed: expiredAt: Path `expiredAt` is required.\n    at Document.invalidate (/Users/chaitanya/Documents/nodejs-microservices/identity-service/node_modules/mongoose/lib/document.js:3351:32)\n    at /Users/chaitanya/Documents/nodejs-microservices/identity-service/node_modules/mongoose/lib/document.js:3112:17\n    at /Users/chaitanya/Documents/nodejs-microservices/identity-service/node_modules/mongoose/lib/schemaType.js:1407:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2025-04-07T13:39:08.670Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:44:13.246Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:44:13.727Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:44:32.564Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:44:32.935Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:44:36.745Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:44:36.746Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:44:36.749Z"}
+{"0":"E","1":"m","10":"s","11":"e","12":"r","13":"n","14":"a","15":"m","16":"e","17":" ","18":"a","19":"l","2":"a","20":"r","21":"e","22":"a","23":"d","24":"y","25":" ","26":"t","27":"a","28":"k","29":"e","3":"i","30":"n","4":"l","5":" ","6":"o","7":"r","8":" ","9":"u","level":"warn","message":"User already exists","service":"identity-service","timestamp":"2025-04-07T13:44:36.791Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:44:45.269Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:44:45.269Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:44:45.272Z"}
+{"0":"E","1":"m","10":"s","11":"e","12":"r","13":"n","14":"a","15":"m","16":"e","17":" ","18":"a","19":"l","2":"a","20":"r","21":"e","22":"a","23":"d","24":"y","25":" ","26":"t","27":"a","28":"k","29":"e","3":"i","30":"n","4":"l","5":" ","6":"o","7":"r","8":" ","9":"u","level":"warn","message":"User already exists","service":"identity-service","timestamp":"2025-04-07T13:44:45.319Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:44:55.490Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:44:55.490Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:44:55.492Z"}
+{"buffer":{"data":[103,243,214,215,119,85,236,82,129,231,194,26],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T13:44:55.625Z"}
+{"_message":"refreshToken validation failed","errors":{"expiredAt":{"kind":"required","message":"Path `expiredAt` is required.","name":"ValidatorError","path":"expiredAt","properties":{"message":"Path `expiredAt` is required.","path":"expiredAt","type":"required"}}},"level":"error","message":"Registration error occured refreshToken validation failed: expiredAt: Path `expiredAt` is required.","service":"identity-service","stack":"ValidationError: refreshToken validation failed: expiredAt: Path `expiredAt` is required.\n    at Document.invalidate (/Users/chaitanya/Documents/nodejs-microservices/identity-service/node_modules/mongoose/lib/document.js:3351:32)\n    at /Users/chaitanya/Documents/nodejs-microservices/identity-service/node_modules/mongoose/lib/document.js:3112:17\n    at /Users/chaitanya/Documents/nodejs-microservices/identity-service/node_modules/mongoose/lib/schemaType.js:1407:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","timestamp":"2025-04-07T13:44:55.629Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:47:13.397Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:47:13.826Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:48:21.808Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:48:22.179Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:48:49.207Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:48:49.208Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:48:49.214Z"}
+{"buffer":{"data":[103,243,215,193,225,68,222,177,194,36,179,67],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T13:48:49.342Z"}
+{"level":"error","message":"Registration error occured expiredAt is not defined","service":"identity-service","stack":"ReferenceError: expiredAt is not defined\n    at generateTokens (file:///Users/chaitanya/Documents/nodejs-microservices/identity-service/src/utils/generateToken.js:24:5)\n    at registerUser (file:///Users/chaitanya/Documents/nodejs-microservices/identity-service/src/controllers/identity-controller.js:39:49)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)","timestamp":"2025-04-07T13:48:49.344Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:49:37.502Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:49:37.846Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:49:56.618Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:49:59.020Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T13:50:04.164Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T13:50:04.542Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:50:10.282Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:50:10.282Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:50:10.286Z"}
+{"0":"E","1":"m","10":"s","11":"e","12":"r","13":"n","14":"a","15":"m","16":"e","17":" ","18":"a","19":"l","2":"a","20":"r","21":"e","22":"a","23":"d","24":"y","25":" ","26":"t","27":"a","28":"k","29":"e","3":"i","30":"n","4":"l","5":" ","6":"o","7":"r","8":" ","9":"u","level":"warn","message":"User already exists","service":"identity-service","timestamp":"2025-04-07T13:50:10.332Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T13:50:19.125Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:50:19.125Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:50:19.127Z"}
+{"buffer":{"data":[103,243,216,27,194,41,53,98,209,103,167,246],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T13:50:19.260Z"}

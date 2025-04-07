@@ -25,10 +25,10 @@ export const registerUser = async (req, res) => {
       $or: [{ username }, { email }],
     });
     if (user) {
-      logger.warn("User already exists", error.details[0].message);
+      logger.warn("User already exists", `Email or username already taken`);
       return res.status(400).json({
         success: false,
-        message: error.details[0].message,
+        message: "Email or username already taken",
       });
     }
 
@@ -45,7 +45,7 @@ export const registerUser = async (req, res) => {
       refreshToken,
     });
   } catch (error) {
-    logger.err("Registration error occured", error);
+    logger.error("Registration error occured", error);
 
     res.status(500).json({
       success: false,
