@@ -1,0 +1,5 @@
+{"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-04-07T20:33:27.413Z"}
+{"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-04-07T20:33:27.414Z"}
+{"level":"info","message":"Response received from Identity service: 404","service":"api-gateway","timestamp":"2025-04-07T20:33:27.421Z"}
+{"level":"info","message":"API Gateway is running at 3000","service":"api-gateway","timestamp":"2025-04-07T20:35:02.680Z"}
+{"level":"info","message":"Identity service is running at http://localhost:3001","service":"api-gateway","timestamp":"2025-04-07T20:35:02.682Z"}

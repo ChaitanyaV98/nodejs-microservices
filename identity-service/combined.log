@@ -62,3 +62,15 @@
 {"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T13:50:19.125Z"}
 {"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T13:50:19.127Z"}
 {"buffer":{"data":[103,243,216,27,194,41,53,98,209,103,167,246],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T13:50:19.260Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T20:14:25.943Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T20:14:26.323Z"}
+{"level":"info","message":"Received POST request to /register","service":"identity-service","timestamp":"2025-04-07T20:18:38.591Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:18:38.592Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-07T20:20:42.823Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-07T20:20:43.187Z"}
+{"level":"info","message":"Received POST request to /register","service":"identity-service","timestamp":"2025-04-07T20:32:32.404Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:32:32.404Z"}
+{"level":"info","message":"Received POST request to /register","service":"identity-service","timestamp":"2025-04-07T20:33:17.515Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:33:17.517Z"}
+{"level":"info","message":"Received POST request to /register","service":"identity-service","timestamp":"2025-04-07T20:33:27.418Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:33:27.418Z"}
