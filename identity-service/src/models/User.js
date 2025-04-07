@@ -28,10 +28,14 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+//middleware
+//This is called a Mongoose "pre-save hook". It runs just before a document is saved to the MongoDB database.
 userSchema.pre("save", async function (next) {
+  //gets triggered when .save() method is called in controller
   if (this.isModified("password")) {
+    //checks if the password is new or changed
     try {
-      this.password = await argon2.hash(this.password);
+      this.password = await argon2.hash(this.password); // If hashing succeeds → async function completes → Mongoose proceeds (next() is implied)
     } catch (error) {
       console.log("Error ", error);
       return next(error);

@@ -36,15 +36,16 @@ app.use((req, res, next) => {
 });
 
 //basic rate-limiting and ddos protection
+//A DDoS attack floods a server, service, or network with too much traffic from multiple sources, making it unavailable to real users.
 
 const rateLimiter = new RateLimiterRedis({
-  storeClient: redisClient,
+  storeClient: redisClient, //Your Redis connection instance
   keyPrefix: "middleware",
   points: 10, //no of requests user can make
   duration: 1, //in 1 sec user can make 10 requests
 });
 
-//
+//middleware to check no.of requests
 app.use((req, res, next) => {
   rateLimiter
     .consume(req.ip)
