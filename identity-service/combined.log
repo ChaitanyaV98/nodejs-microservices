@@ -74,3 +74,11 @@
 {"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:33:17.517Z"}
 {"level":"info","message":"Received POST request to /register","service":"identity-service","timestamp":"2025-04-07T20:33:27.418Z"}
 {"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:33:27.418Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T20:38:07.803Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:38:07.804Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T20:38:07.808Z"}
+{"buffer":{"data":[103,244,55,175,57,151,32,26,240,34,228,125],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T20:38:07.961Z"}
+{"level":"info","message":"Received POST request to /api/auth/register","service":"identity-service","timestamp":"2025-04-07T20:42:10.729Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:42:10.729Z"}
+{"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T20:42:10.731Z"}
+{"buffer":{"data":[103,244,56,162,57,151,32,26,240,34,228,130],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T20:42:10.866Z"}
