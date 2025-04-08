@@ -1,1 +1,2 @@
-{"level":"error","message":"Proxy error: url is not defined","service":"api-gateway","timestamp":"2025-04-07T20:41:52.893Z"}
+{"level":"error","message":"Proxy error in logger: userReq is not defined","service":"api-gateway","timestamp":"2025-04-08T12:32:49.215Z"}
+{"level":"error","message":"Proxy error in logger: req is not defined","service":"api-gateway","timestamp":"2025-04-08T12:33:57.170Z"}

@@ -8,6 +8,7 @@ import errorHandler from "./middleware/errorHandler.js";
 import { rateLimit } from "express-rate-limit";
 import { RedisStore } from "rate-limit-redis";
 import url from "url";
+import { validateToken } from "./middleware/authMiddleware.js";
 
 const app = express();
 
@@ -48,7 +49,7 @@ app.use((req, res, next) => {
 const proxyOptions = {
   proxyReqOptDecorator: (req) => {
     const resolvedPath = req.originalUrl.replace(/^\/v1/, "/api");
-    return url.parse(resolvedPath).path;
+    return resolvedPath;
   },
   proxyErrorHandler: (err, res, next) => {
     logger.error(`Proxy error: ${err.message}`);
@@ -100,7 +101,50 @@ app.use(
     },
 
     proxyErrorHandler: (err, res, next) => {
-      logger.error(`Proxy error: ${err.message}`);
+      logger.error(`Proxy error in identity service: ${err.message}`);
+      res.status(500).json({
+        message: `Internal server error`,
+        error: err.message,
+      });
+    },
+  })
+);
+
+//setting up proxy for our post services
+app.use(
+  "/v1/posts",
+  validateToken,
+  proxy(process.env.POST_SERVICE_URL, {
+    // proxyReqPathResolver: (req) => {
+    //   const resolvedPath = req.originalUrl.replace(/^\/v1/, "/api");
+    //   return url.parse(resolvedPath).path;
+    // },
+
+    proxyReqPathResolver: (req) => {
+      const resolvedPath = req.originalUrl.replace(/^\/v1/, "/api");
+      logger.info(`Proxying request to: ${resolvedPath}`);
+      return resolvedPath;
+    },
+    // Optional: Set JSON header
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+      logger.info(
+        `Forwarded to path: ${srcReq.originalUrl} → ${
+          url.parse(srcReq.originalUrl.replace(/^\/v1/, "/api")).path
+        }`
+      );
+      proxyReqOpts.headers["Content-Type"] = "application/json";
+      proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
+      return proxyReqOpts;
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+      logger.info(
+        `Response received from post service: ${proxyRes.statusCode}`
+      );
+      return proxyResData;
+    },
+
+    proxyErrorHandler: (err, res, next) => {
+      logger.error(`Proxy error in logger: ${err.message}`);
       res.status(500).json({
         message: `Internal server error`,
         error: err.message,
@@ -118,4 +162,5 @@ app.listen(PORT, () => {
   logger.info(
     `Identity service is running at ${process.env.IDENTITY_SERVICE_URL}`
   );
+  logger.info(`post service is running at ${process.env.POST_SERVICE_URL}`);
 });
