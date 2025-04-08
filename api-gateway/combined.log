@@ -13,3 +13,9 @@
 {"level":"info","message":"Received POST request to /v1/auth/register","service":"api-gateway","timestamp":"2025-04-07T20:42:10.723Z"}
 {"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-04-07T20:42:10.723Z"}
 {"level":"info","message":"Response received from Identity service: 201","service":"api-gateway","timestamp":"2025-04-07T20:42:10.899Z"}
+{"level":"info","message":"Received GET request to /v1/auth/login","service":"api-gateway","timestamp":"2025-04-08T02:47:56.456Z"}
+{"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-04-08T02:47:56.457Z"}
+{"level":"info","message":"Response received from Identity service: 404","service":"api-gateway","timestamp":"2025-04-08T02:47:56.479Z"}
+{"level":"info","message":"Received POST request to /v1/auth/login","service":"api-gateway","timestamp":"2025-04-08T02:48:02.137Z"}
+{"level":"info","message":"Request body, [object Object]","service":"api-gateway","timestamp":"2025-04-08T02:48:02.139Z"}
+{"level":"info","message":"Response received from Identity service: 200","service":"api-gateway","timestamp":"2025-04-08T02:48:02.289Z"}

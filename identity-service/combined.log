@@ -82,3 +82,42 @@
 {"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-07T20:42:10.729Z"}
 {"level":"info","message":"Registration endpoint hit...","service":"identity-service","timestamp":"2025-04-07T20:42:10.731Z"}
 {"buffer":{"data":[103,244,56,162,57,151,32,26,240,34,228,130],"type":"Buffer"},"level":"warn","message":"User saved successfully","service":"identity-service","timestamp":"2025-04-07T20:42:10.866Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:19:39.984Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:19:40.389Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:20:10.746Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:20:11.136Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:37:41.613Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:37:41.996Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:37:48.391Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:37:48.731Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:38:18.086Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:38:18.465Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:38:29.877Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:38:30.238Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:38:42.876Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:38:43.259Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:39:15.465Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:39:15.833Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:39:20.317Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:39:20.693Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:40:52.338Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:40:52.699Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:41:20.143Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:41:20.494Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:42:44.662Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:42:45.009Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:42:49.204Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:42:49.654Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:43:35.711Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:43:36.119Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:44:08.394Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:44:09.514Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:44:23.341Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:44:23.684Z"}
+{"level":"info","message":"identity service is running at 3001","service":"identity-service","timestamp":"2025-04-08T02:46:07.945Z"}
+{"level":"info","message":"Connected to mongodb","service":"identity-service","timestamp":"2025-04-08T02:46:08.325Z"}
+{"level":"info","message":"Received GET request to /api/auth/login","service":"identity-service","timestamp":"2025-04-08T02:47:56.475Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-08T02:47:56.475Z"}
+{"level":"info","message":"Received POST request to /api/auth/login","service":"identity-service","timestamp":"2025-04-08T02:48:02.142Z"}
+{"level":"info","message":"Request body, [object Object]","service":"identity-service","timestamp":"2025-04-08T02:48:02.143Z"}
+{"level":"info","message":"Login endpoint hit...","service":"identity-service","timestamp":"2025-04-08T02:48:02.145Z"}
