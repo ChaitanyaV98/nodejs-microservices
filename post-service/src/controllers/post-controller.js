@@ -2,6 +2,22 @@ import logger from "../utils/logger.js";
 import { validateCreatePost } from "../utils/validateSchema.js";
 import Post from "../models/Post.js";
 
+// async function invalidatePostCache(req, res) {
+//   const keys = await req.redisClient.keys("posts:*");
+//   if (keys.length > 0) {
+//     await req.redisClient.del(keys);
+//   }
+// }
+
+async function invalidatePostCache(req, input) {
+  const cachedKey = `post:${input}`;
+  await req.redisClient.del(cachedKey);
+
+  const keys = await req.redisClient.keys("posts:*");
+  if (keys.length > 0) {
+    await req.redisClient.del(keys);
+  }
+}
 export const createPost = async (req, res) => {
   try {
     logger.info("Post Api endpoint hit");
@@ -22,7 +38,8 @@ export const createPost = async (req, res) => {
       mediaIds: mediaIds || [],
     });
     await newlyCreatedPost.save();
-
+    //invalidate
+    await invalidatePostCache(req, newlyCreatedPost._id.toString());
     logger.info("Post created successfully", newlyCreatedPost);
     res.status(201).json({
       success: true,
@@ -77,13 +94,71 @@ export const getAllPosts = async (req, res) => {
   }
 };
 
-export const deletePost = async (req, res) => {
+export const getPost = async (req, res) => {
   try {
-  } catch (error) {
-    logger.error("Error when DELETING posts", error);
+    const postId = req.params.id;
+    const cachekey = `post:${postId}`;
+    const cachedPost = await req.redisClient.get(cachekey);
+
+    if (cachedPost) {
+      return res.json(JSON.parse(cachedPost));
+    }
+
+    const singlePostDetailsbyId = await Post.findById(postId);
+
+    if (!singlePostDetailsbyId) {
+      return res.status(404).json({
+        message: "Post not found",
+        success: false,
+      });
+    }
+
+    await req.redisClient.setex(
+      cachedPost,
+      3600,
+      JSON.stringify(singlePostDetailsbyId)
+    );
+
+    res.json(singlePostDetailsbyId);
+  } catch (e) {
+    logger.error("Error fetching post", error);
     res.status(500).json({
       success: false,
-      message: "Internal server error when DELETING post ",
+      message: "Error fetching post by ID",
+    });
+  }
+};
+
+export const deletePost = async (req, res) => {
+  try {
+    const post = await Post.findOneAndDelete({
+      _id: req.params.id,
+      user: req.user.userId,
+    });
+
+    if (!post) {
+      return res.status(404).json({
+        message: "Post not found",
+        success: false,
+      });
+    }
+
+    //publish post delete method ->
+    await publishEvent("post.deleted", {
+      postId: post._id.toString(),
+      userId: req.user.userId,
+      mediaIds: post.mediaIds,
+    });
+
+    await invalidatePostCache(req, req.params.id);
+    res.json({
+      message: "Post deleted successfully",
+    });
+  } catch (e) {
+    logger.error("Error deleting post", error);
+    res.status(500).json({
+      success: false,
+      message: "Error deleting post",
     });
   }
 };
