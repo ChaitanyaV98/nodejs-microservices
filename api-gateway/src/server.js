@@ -110,7 +110,7 @@ app.use(
   })
 );
 
-//setting up proxy for our post services
+//setting up proxy for our post  services
 app.use(
   "/v1/posts",
   validateToken,
@@ -153,6 +153,85 @@ app.use(
   })
 );
 
+//setting up proxy for our media service
+app.use(
+  "/v1/media",
+  validateToken,
+  proxy(process.env.MEDIA_SERVICE_URL, {
+    proxyReqPathResolver: (req) => {
+      const resolvedPath = req.originalUrl.replace(/^\/v1/, "/api");
+      logger.info(`Proxying request to: ${resolvedPath}`);
+      return resolvedPath;
+    },
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+      logger.info(
+        `Forwarded to path: ${srcReq.originalUrl} → ${
+          url.parse(srcReq.originalUrl.replace(/^\/v1/, "/api")).path
+        }`
+      );
+
+      proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
+
+      if (!srcReq.headers["content-type"].startsWith("multipart/form-data")) {
+        proxyReqOpts.headers["Content-Type"] = "application/json";
+      }
+      return proxyReqOpts;
+    },
+
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+      logger.info(
+        `Response received from media service: ${proxyRes.statusCode}`
+      );
+      return proxyResData;
+    },
+
+    parseReqBody: false, // Entire req body is proxied for fileuploads also
+  })
+);
+
+//setting up proxy for search service
+app.use(
+  "/v1/search",
+  validateToken,
+  proxy(process.env.SEARCH_SERVICE_URL, {
+    // proxyReqPathResolver: (req) => {
+    //   const resolvedPath = req.originalUrl.replace(/^\/v1/, "/api");
+    //   return url.parse(resolvedPath).path;
+    // },
+
+    proxyReqPathResolver: (req) => {
+      const resolvedPath = req.originalUrl.replace(/^\/v1/, "/api");
+      logger.info(`Proxying request to: ${resolvedPath}`);
+      return resolvedPath;
+    },
+    // Optional: Set JSON header
+    proxyReqOptDecorator: (proxyReqOpts, srcReq) => {
+      logger.info(
+        `Forwarded to path: ${srcReq.originalUrl} → ${
+          url.parse(srcReq.originalUrl.replace(/^\/v1/, "/api")).path
+        }`
+      );
+      proxyReqOpts.headers["Content-Type"] = "application/json";
+      proxyReqOpts.headers["x-user-id"] = srcReq.user.userId;
+      return proxyReqOpts;
+    },
+    userResDecorator: (proxyRes, proxyResData, userReq, userRes) => {
+      logger.info(
+        `Response received from Search service: ${proxyRes.statusCode}`
+      );
+      return proxyResData;
+    },
+
+    proxyErrorHandler: (err, res, next) => {
+      logger.error(`Proxy error in logger: ${err.message}`);
+      res.status(500).json({
+        message: `Internal server error`,
+        error: err.message,
+      });
+    },
+  })
+);
+
 //error handling
 app.use(errorHandler);
 
@@ -163,4 +242,7 @@ app.listen(PORT, () => {
     `Identity service is running at ${process.env.IDENTITY_SERVICE_URL}`
   );
   logger.info(`post service is running at ${process.env.POST_SERVICE_URL}`);
+  logger.info(`media service is running at ${process.env.MEDIA_SERVICE_URL}`);
+  logger.info(`search service is running at ${process.env.SEARCH_SERVICE_URL}`);
+  logger.info(`Redis URL ${process.env.REDIS_URL}`);
 });
