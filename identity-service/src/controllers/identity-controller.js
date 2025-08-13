@@ -24,7 +24,7 @@ export const registerUser = async (req, res) => {
     }
 
     const { email, password, username } = req.body;
-
+    // query to check if the user is there or not
     let user = await User.findOne({
       $or: [{ username }, { email }],
     });
@@ -39,6 +39,8 @@ export const registerUser = async (req, res) => {
     user = new User({ username, email, password });
     await user.save();
     logger.warn("User saved successfully", user._id);
+
+    // we are generating tokens here itself because after user registers we dont force user to login again
 
     const { accessToken, refreshToken } = await generateTokens(user);
 
@@ -63,7 +65,6 @@ export const loginUser = async (req, res) => {
   logger.info("Login endpoint hit...");
   try {
     //validate
-
     const { error } = validatelogin(req.body);
     if (error) {
       logger.warn("Login Validation error", error.details[0].message);
