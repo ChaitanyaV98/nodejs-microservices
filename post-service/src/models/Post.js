@@ -24,6 +24,8 @@ const postSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+// this is the database indexing that we are creating.
+//we are creating indexing on content -  so if we want to search then we can search on this content.
 postSchema.index({ content: "text" });
 
 const Post = mongoose.model("Post", postSchema);
