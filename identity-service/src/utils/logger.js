@@ -8,15 +8,18 @@ const logger = winston.createLogger({
     winston.format.json()
   ),
   defaultMeta: { service: "identity-service" },
+
+  //trnasport specifies the output destination
   transports: [
     new winston.transports.Console({
+      // all the logs that we are having, we will get those in our console
       format: winston.format.combine(
-        winston.format.colorize(),
+        winston.format.colorize(), // format for colorizing
         winston.format.simple()
       ),
     }),
-    new winston.transports.File({ filename: "error.log", level: "error" }),
-    new winston.transports.File({ filename: "combined.log" }),
+    new winston.transports.File({ filename: "error.log", level: "error" }), //the error logs will also come in a file
+    new winston.transports.File({ filename: "combined.log" }), // all the logs in this file
   ],
 });
 
