@@ -1,7 +1,8 @@
 import logger from "../utils/logger.js";
 
 export const authenticateRequest = (req, res, next) => {
-  const userId = req.headers["x-user-id"];
+  //getting userId from our headers
+  const userId = req.headers["x-user-id"]; // x-user-id we will be getting from api gateway
 
   if (!userId) {
     logger.warn("Access attempted without user id");
