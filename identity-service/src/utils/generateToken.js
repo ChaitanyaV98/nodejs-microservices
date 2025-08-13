@@ -10,11 +10,11 @@ const generateTokens = async (user) => {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "60m", //realtime should be max 15 mi
+      expiresIn: "60m", //realtime should be max 15 min
     }
   );
 
-  const refreshToken = crypto.randomBytes(40).toString("hex");
+  const refreshToken = crypto.randomBytes(40).toString("hex"); // sets complex token
   const expiresAt = new Date();
   expiresAt.setDate(expiresAt.getDate() + 7); //refresh token expires in 7 days
 
