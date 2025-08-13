@@ -3,12 +3,13 @@ import logger from "./utils/logger.js";
 import express from "express";
 import helmet from "helmet"; //adds security to http headers
 import { RateLimiterRedis } from "rate-limiter-flexible";
-import Redis from "ioredis";
+import Redis from "ioredis"; //used for caching the data in mem
 import { rateLimit } from "express-rate-limit";
 import { RedisStore } from "rate-limit-redis";
 import errorHandler from "./middleware/errorHandler.js";
-import cors from "cors";
+import cors from "cors"; // helps adding security with repsect to browser request
 import router from "./routes/post-routes.js";
+import { connectToRabbitMQ } from "./utils/rabbitmq.js";
 
 const app = express();
 const PORT = process.env.PORT || 3002;
@@ -68,7 +69,7 @@ const sensitiveEndpointsLimiter = rateLimit({
 //apply this sensitiveEndpointsLimiter to our routes
 app.use("/api/posts/create-post", sensitiveEndpointsLimiter);
 
-//Routes
+//Routes -> pass redisClient to routes
 app.use(
   "/api/posts",
   (req, res, next) => {
@@ -81,11 +82,21 @@ app.use(
 //error handler
 app.use(errorHandler);
 
+async function startServer() {
+  try {
+    await connectToRabbitMQ();
+    app.listen(PORT, () => {
+      console.log(`post service is running at ${PORT}`);
+      logger.info(`post service is running at ${PORT}`);
+    });
+  } catch (error) {
+    logger.error("Failed to connect to server");
+    process.exit(1);
+  }
+}
+
 //start server
-app.listen(PORT, () => {
-  console.log(`post service is running at ${PORT}`);
-  logger.info(`post service is running at ${PORT}`);
-});
+startServer(); //here we connect to rabbit mq and start our server
 
 //unhandled promise rejection
 process.on("unhandledRejection", (reason, promise) => {
